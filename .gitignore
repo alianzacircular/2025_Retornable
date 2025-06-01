@@ -1,0 +1,4 @@
+### ignore files in the venv directory, created by virtualenv, 
+
+venv
+venv/*
