@@ -34,7 +34,7 @@
                     </div>
                     
                     <!-- Section for simulating a scenario -->
-                    <h3> Simulate a scenario</h3>
+                    <!--<h3> Simulate a scenario</h3>
                     <p>If no data is uploaded, it will use our predefined instance</p>
                     <div class="mb-3 row d-flex justify-content-end">
                         <label for="container_value" class="col-sm-6 col-form-label text-start">New container:</label>
@@ -64,6 +64,248 @@
                         <label for="transportation" class="col-sm-6 col-form-label text-start">Transportation:</label>
                         <div class="col-sm-4">
                             <input id="transportation" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['transportation_value'] }}" min="{{ controls_default['transportation_min'] }}" max="{{ controls_default['transportation_max'] }}" step="{{ controls_default['transportation_step'] }}">
+                        </div>
+                    </div>--->
+
+                    <!-- Section for simulating a scenario -->
+                    <h3> Simulate a scenario</h3>
+                    <p>If no data is uploaded, it will use our predefined instance</p>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                Parámetros Técnicos
+                            </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="ccv" class="col-sm-6 col-form-label text-start">Capacidad de clasificación:</label>
+                                        <div class="col-sm-4">
+                                            <input id="ccv" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['ccv_value'] }}" min="{{ controls_default['ccv_min'] }}" max="{{ controls_default['ccv_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="acv" class="col-sm-6 col-form-label text-start">Cap. almacenamiento valorización:</label>
+                                        <div class="col-sm-4">
+                                            <input id="acv" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['acv_value'] }}" min="{{ controls_default['acv_min'] }}" max="{{ controls_default['acv_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="lpl" class="col-sm-6 col-form-label text-start">Capacidad de lavado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="lpl" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['lpl_value'] }}" min="{{ controls_default['lpl_min'] }}" max="{{ controls_default['lpl_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="apl" class="col-sm-6 col-form-label text-start">Cap. almacenamiento lavado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="apl" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['apl_value'] }}" min="{{ controls_default['apl_min'] }}" max="{{ controls_default['apl_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="ta" class="col-sm-6 col-form-label text-start">% aprobación en valorización:</label>
+                                        <div class="col-sm-4">
+                                            <input id="ta" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['ta_value'] }}" min="{{ controls_default['ta_min'] }}" max="{{ controls_default['ta_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="tl" class="col-sm-6 col-form-label text-start">% aprobación en lavado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="tl" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['tl_value'] }}" min="{{ controls_default['tl_min'] }}" max="{{ controls_default['tl_max'] }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                Parámetros de Costos
+                            </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="dep" class="col-sm-6 col-form-label text-start">Costo de depósito:</label>
+                                        <div class="col-sm-4">
+                                            <input id="dep" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['dep_value'] }}" min="{{ controls_default['dep_min'] }}" max="{{ controls_default['dep_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="envn" class="col-sm-6 col-form-label text-start">Costo de envase nuevo:</label>
+                                        <div class="col-sm-4">
+                                            <input id="envn" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['envn_value'] }}" min="{{ controls_default['envn_min'] }}" max="{{ controls_default['envn_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="enr" class="col-sm-6 col-form-label text-start">Precio de venta envase retornable:</label>
+                                        <div class="col-sm-4">
+                                            <input id="enr" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['enr_value'] }}" min="{{ controls_default['enr_min'] }}" max="{{ controls_default['enr_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="tri" class="col-sm-6 col-form-label text-start">Precio de venta envase triturado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="tri" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['tri_value'] }}" min="{{ controls_default['tri_min'] }}" max="{{ controls_default['tri_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="arr_cv" class="col-sm-6 col-form-label text-start">Arrendamiento de valorización:</label>
+                                        <div class="col-sm-4">
+                                            <input id="arr_cv" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['arr_cv_value'] }}" min="{{ controls_default['arr_cv_min'] }}" max="{{ controls_default['arr_cv_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="arr_pl" class="col-sm-6 col-form-label text-start">Arrendamiento de lavado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="arr_pl" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['arr_pl_value'] }}" min="{{ controls_default['arr_pl_min'] }}" max="{{ controls_default['arr_pl_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="ade_cv" class="col-sm-6 col-form-label text-start">Adecuación de valorización:</label>
+                                        <div class="col-sm-4">
+                                            <input id="ade_cv" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['ade_cv_value'] }}" min="{{ controls_default['ade_cv_min'] }}" max="{{ controls_default['ade_cv_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="ade_pl" class="col-sm-6 col-form-label text-start">Adecuación de lavado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="ade_pl" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['ade_pl_value'] }}" min="{{ controls_default['ade_pl_min'] }}" max="{{ controls_default['ade_pl_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="qc" class="col-sm-6 col-form-label text-start">Clasificación e inspección:</label>
+                                        <div class="col-sm-4">
+                                            <input id="qc" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['qc_value'] }}" min="{{ controls_default['qc_min'] }}" max="{{ controls_default['qc_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="qt" class="col-sm-6 col-form-label text-start">Trituración:</label>
+                                        <div class="col-sm-4">
+                                            <input id="qt" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['qt_value'] }}" min="{{ controls_default['qt_min'] }}" max="{{ controls_default['qt_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="ql" class="col-sm-6 col-form-label text-start">Lavado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="ql" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['ql_value'] }}" min="{{ controls_default['ql_min'] }}" max="{{ controls_default['ql_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="qb" class="col-sm-6 col-form-label text-start">Prueba de laboratorio:</label>
+                                        <div class="col-sm-4">
+                                            <input id="qb" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['qb_value'] }}" min="{{ controls_default['qb_min'] }}" max="{{ controls_default['qb_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="qa" class="col-sm-6 col-form-label text-start">Transporte:</label>
+                                        <div class="col-sm-4">
+                                            <input id="qa" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['qa_value'] }}" min="{{ controls_default['qa_min'] }}" max="{{ controls_default['qa_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="cinv" class="col-sm-6 col-form-label text-start">Inventario en valorización:</label>
+                                        <div class="col-sm-4">
+                                            <input id="cinv" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['cinv_value'] }}" min="{{ controls_default['cinv_min'] }}" max="{{ controls_default['cinv_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="pinv" class="col-sm-6 col-form-label text-start">Inventario en las plantas de lavado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="pinv" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['pinv_value'] }}" min="{{ controls_default['pinv_min'] }}" max="{{ controls_default['pinv_max'] }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                Parámetros del Entorno
+                            </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="wa" class="col-sm-6 col-form-label text-start">WACC:</label>
+                                        <div class="col-sm-4">
+                                            <input id="wa" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['wa_value'] }}" min="{{ controls_default['wa_min'] }}" max="{{ controls_default['wa_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="inflation" class="col-sm-6 col-form-label text-start">Inflación:</label>
+                                        <div class="col-sm-4">
+                                            <input id="inflation" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['inflation_value'] }}" min="{{ controls_default['inflation_min'] }}" max="{{ controls_default['inflation_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="recup" class="col-sm-6 col-form-label text-start">Tasa de recuperación:</label>
+                                        <div class="col-sm-4">
+                                            <input id="recup" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['recup_value'] }}" min="{{ controls_default['recup_min'] }}" max="{{ controls_default['recup_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="recup_increm" class="col-sm-6 col-form-label text-start">Tasa de incremento:</label>
+                                        <div class="col-sm-4">
+                                            <input id="recup_increm" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['recup_increm_value'] }}" min="{{ controls_default['recup_increm_min'] }}" max="{{ controls_default['recup_increm_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="dem_interval" class="col-sm-6 col-form-label text-start">Intervalo de demanda:</label>
+                                        <div class="col-sm-4">
+                                            <input id="dem_interval" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['dem_interval_value'] }}" min="{{ controls_default['dem_interval_min'] }}" max="{{ controls_default['dem_interval_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="adem" class="col-sm-6 col-form-label text-start">Tasa de incremento de la demanda:</label>
+                                        <div class="col-sm-4">
+                                            <input id="adem" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['adem_value'] }}" min="{{ controls_default['adem_min'] }}" max="{{ controls_default['adem_max'] }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                Parámetros Ambientales
+                            </button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="em" class="col-sm-6 col-form-label text-start">Transporte:</label>
+                                        <div class="col-sm-4">
+                                            <input id="em" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['em_value'] }}" min="{{ controls_default['em_min'] }}" max="{{ controls_default['em_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="el" class="col-sm-6 col-form-label text-start">lavado:</label>
+                                        <div class="col-sm-4">
+                                            <input id="el" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['el_value'] }}" min="{{ controls_default['el_min'] }}" max="{{ controls_default['el_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="et" class="col-sm-6 col-form-label text-start">trituración:</label>
+                                        <div class="col-sm-4">
+                                            <input id="et" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['et_value'] }}" min="{{ controls_default['et_min'] }}" max="{{ controls_default['et_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="en" class="col-sm-6 col-form-label text-start">Emisiones de envases nuevos:</label>
+                                        <div class="col-sm-4">
+                                            <input id="en" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['en_value'] }}" min="{{ controls_default['en_min'] }}" max="{{ controls_default['en_max'] }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row d-flex justify-content-end">
+                                        <label for="wa2" class="col-sm-6 col-form-label text-start">WACC 2:</label>
+                                        <div class="col-sm-4">
+                                            <input id="wa2" type="number" class="form-control" placeholder="Enter a number" value="{{ controls_default['wa2_value'] }}" min="{{ controls_default['wa2_min'] }}" max="{{ controls_default['wa2_max'] }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
