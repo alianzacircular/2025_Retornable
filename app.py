@@ -207,11 +207,59 @@ def run_sample_model():
         JSON response indicating the result of the model run.
     """
     inputs = request.get_json()
-    parameters['enr'] = inputs['container_value']
-    parameters['dep'] = inputs['deposit']
-    parameters['qc'] = inputs['clasification']
-    parameters['ql'] = inputs['washing']
-    parameters['qa'] = inputs['transportation']
+    #parameters['enr'] = inputs['container_value']
+    #parameters['dep'] = inputs['deposit']
+    #parameters['qc'] = inputs['clasification']
+    #parameters['ql'] = inputs['washing']
+    #parameters['qa'] = inputs['transportation']
+    
+    # Parámetros sin clasificación
+    parameters['n_acopios'] = 5
+    parameters['n_centros'] = 5
+    parameters['n_plantas'] = 3
+    parameters['n_productores'] = 5
+    parameters['n_envases'] = 3
+    parameters['n_periodos'] = 10
+
+    # Parámetros técnicos
+    parameters['ccv'] = inputs['ccv']
+    parameters['acv'] = inputs['acv']
+    parameters['lpl'] = inputs['lpl']
+    parameters['apl'] = inputs['apl']
+    parameters['ta'] = inputs['ta']
+    parameters['tl'] = inputs['tl']
+
+    # Parámetros de costo
+    parameters['dep'] = inputs['dep']
+    parameters['envn'] = inputs['envn']
+    parameters['enr'] = inputs['enr']
+    parameters['tri'] = inputs['tri']
+    parameters['arr_cv'] = inputs['arr_cv']
+    parameters['arr_pl'] = inputs['arr_pl']
+    parameters['ade_cv'] = inputs['ade_cv']
+    parameters['ade_pl'] = inputs['ade_pl']
+    parameters['qc'] = inputs['qc']
+    parameters['qt'] = inputs['qt']
+    parameters['ql'] = inputs['ql']
+    parameters['qb'] = inputs['qb']
+    parameters['qa'] = inputs['qa']
+    parameters['cinv'] = inputs['cinv']
+    parameters['pinv'] = inputs['pinv']
+
+    # Parámetros del entorno
+    parameters['wa'] = inputs['wa']
+    parameters['inflation'] = inputs['inflation']
+    parameters['recup'] = inputs['recup']
+    parameters['recup_increm'] = inputs['recup_increm']
+    parameters['dem_interval'] = inputs['dem_interval']
+    parameters['adem'] = inputs['adem']
+
+    # Parámetros Ambientales
+    parameters['em'] = inputs['em']
+    parameters['el'] = inputs['el']
+    parameters['et'] = inputs['et']
+    parameters['en'] = inputs['en']
+
     instance = create_instance(parameters, seed=7)
     
     # Uncomment the following lines to use Gurobi solver

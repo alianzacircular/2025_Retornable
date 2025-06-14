@@ -17,11 +17,51 @@ async function runSampleModel() {
     try {
         // Gather input values
         const parameters = {
+            /*
             container_value: parseFloat(document.getElementById('container_value').value),
             deposit: parseFloat(document.getElementById('deposit').value),
             clasification: parseFloat(document.getElementById('clasification').value),
             washing: parseFloat(document.getElementById('washing').value),
-            transportation: parseFloat(document.getElementById('transportation').value)
+            transportation: parseFloat(document.getElementById('transportation').value),
+            */
+            // Parámetros técnicos
+            ccv: parseFloat(document.getElementById('ccv').value),
+            acv: parseFloat(document.getElementById('acv').value),
+            lpl: parseFloat(document.getElementById('lpl').value),
+            apl: parseFloat(document.getElementById('apl').value),
+            ta: parseFloat(document.getElementById('ta').value),
+            tl: parseFloat(document.getElementById('tl').value),
+
+            // Parámetros de costo
+            dep: parseFloat(document.getElementById('dep').value),
+            envn: parseFloat(document.getElementById('envn').value),
+            enr: parseFloat(document.getElementById('enr').value),
+            tri: parseFloat(document.getElementById('tri').value),
+            arr_cv: parseFloat(document.getElementById('arr_cv').value),
+            arr_pl: parseFloat(document.getElementById('arr_pl').value),
+            ade_cv: parseFloat(document.getElementById('ade_cv').value),
+            ade_pl: parseFloat(document.getElementById('ade_pl').value),
+            qc: parseFloat(document.getElementById('qc').value),
+            qt: parseFloat(document.getElementById('qt').value),
+            ql: parseFloat(document.getElementById('ql').value),
+            qb: parseFloat(document.getElementById('qb').value),
+            qa: parseFloat(document.getElementById('qa').value),
+            cinv: parseFloat(document.getElementById('cinv').value),
+            pinv: parseFloat(document.getElementById('pinv').value),
+
+            // Parámetros del entorno
+            wa: parseFloat(document.getElementById('wa').value),
+            inflation: parseFloat(document.getElementById('inflation').value),
+            recup: parseFloat(document.getElementById('recup').value),
+            recup_increm: parseFloat(document.getElementById('recup_increm').value),
+            dem_interval: JSON.parse(document.getElementById('dem_interval').value),
+            adem: parseFloat(document.getElementById('adem').value),
+
+            // Parámetros Ambientales
+            em: parseFloat(document.getElementById('em').value),
+            el: parseFloat(document.getElementById('el').value),
+            et: parseFloat(document.getElementById('et').value),
+            en: parseFloat(document.getElementById('en').value)
         };
 
         // Send POST request to Flask backend
