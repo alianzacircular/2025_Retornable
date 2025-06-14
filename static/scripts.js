@@ -146,7 +146,7 @@ async function uploadFile() {
 
         Plotly.newPlot('graph', graph_json.data, graph_json.layout);
 
-        // Update control column default values
+        /* Update control column default values
         document.getElementById('container_value').value = controls_default['container_value'];
         document.getElementById('container_value').min = controls_default['container_value_min'];
         document.getElementById('container_value').max = controls_default['container_value_max'];
@@ -162,6 +162,111 @@ async function uploadFile() {
         document.getElementById('transportation').value = controls_default.transportation_value;
         document.getElementById('transportation').min = controls_default.transportation_min;
         document.getElementById('transportation').max = controls_default.transportation_max;
+        */
+       /* New parameters into accordion  */
+        /* Parámetros técnicos */
+        document.getElementById('ccv').value    = controls_default.ccv_value;
+        document.getElementById('ccv').min      = controls_default.ccv_min;
+        document.getElementById('ccv').max      = controls_default.ccv_max;
+        document.getElementById('acv').value    = controls_default.acv_value;
+        document.getElementById('acv').min      = controls_default.acv_min;
+        document.getElementById('acv').max      = controls_default.acv_max;
+        document.getElementById('lpl').value    = controls_default.lpl_value;
+        document.getElementById('lpl').min      = controls_default.lpl_min;
+        document.getElementById('lpl').max      = controls_default.lpl_max;
+        document.getElementById('apl').value    = controls_default.apl_value;
+        document.getElementById('apl').min      = controls_default.apl_min;
+        document.getElementById('apl').max      = controls_default.apl_max;
+        document.getElementById('ta').value     = controls_default.ta_value;
+        document.getElementById('ta').min       = controls_default.ta_min;
+        document.getElementById('ta').max       = controls_default.ta_max;
+        document.getElementById('tl').value     = controls_default.tl_value;
+        document.getElementById('tl').min       = controls_default.tl_min;
+        document.getElementById('tl').max       = controls_default.tl_max;
+
+        /* Parámetros de costo */
+        document.getElementById('dep').value    = controls_default.dep_value;
+        document.getElementById('dep').min      = controls_default.dep_min;
+        document.getElementById('dep').max      = controls_default.dep_max;
+        document.getElementById('envn').value   = controls_default.envn_value;
+        document.getElementById('envn').min     = controls_default.envn_min;
+        document.getElementById('envn').max     = controls_default.envn_max;
+        document.getElementById('enr').value    = controls_default.enr_value;
+        document.getElementById('enr').min      = controls_default.enr_min;
+        document.getElementById('enr').max      = controls_default.enr_max;
+        document.getElementById('tri').value    = controls_default.tri_value;
+        document.getElementById('tri').min      = controls_default.tri_min;
+        document.getElementById('tri').max      = controls_default.tri_max;
+        document.getElementById('arr_cv').value = controls_default.arr_cv_value;
+        document.getElementById('arr_cv').min   = controls_default.arr_cv_min;
+        document.getElementById('arr_cv').max   = controls_default.arr_cv_max;
+        document.getElementById('arr_pl').value = controls_default.arr_pl_value;
+        document.getElementById('arr_pl').min   = controls_default.arr_pl_min;
+        document.getElementById('arr_pl').max   = controls_default.arr_pl_max;
+        document.getElementById('ade_cv').value = controls_default.ade_cv_value;
+        document.getElementById('ade_cv').min   = controls_default.ade_cv_min;
+        document.getElementById('ade_cv').max   = controls_default.ade_cv_max;
+        document.getElementById('ade_pl').value = controls_default.ade_pl_value;
+        document.getElementById('ade_pl').min   = controls_default.ade_pl_min;
+        document.getElementById('ade_pl').max   = controls_default.ade_pl_max;
+        document.getElementById('qc').value     = controls_default.qc_value;
+        document.getElementById('qc').min       = controls_default.qc_min;
+        document.getElementById('qc').max       = controls_default.qc_max;
+        document.getElementById('qt').value     = controls_default.qt_value;
+        document.getElementById('qt').min       = controls_default.qt_min;
+        document.getElementById('qt').max       = controls_default.qt_max;
+        document.getElementById('ql').value     = controls_default.ql_value;
+        document.getElementById('ql').min       = controls_default.ql_min;
+        document.getElementById('ql').max       = controls_default.ql_max;
+        document.getElementById('qb').value     = controls_default.qb_value;
+        document.getElementById('qb').min       = controls_default.qb_min;
+        document.getElementById('qb').max       = controls_default.qb_max;
+        document.getElementById('qa').value     = controls_default.qa_value;
+        document.getElementById('qa').min       = controls_default.qa_min;
+        document.getElementById('qa').max       = controls_default.qa_max;
+        document.getElementById('cinv').value   = controls_default.cinv_value;
+        document.getElementById('cinv').min     = controls_default.cinv_min;
+        document.getElementById('cinv').max     = controls_default.cinv_max;
+        document.getElementById('pinv').value   = controls_default.pinv_value;
+        document.getElementById('pinv').min     = controls_default.pinv_min;
+        document.getElementById('pinv').max     = controls_default.pinv_max;
+        
+        /* Parámetros del entorno */
+        document.getElementById('wa').value         = controls_default.wa_value;
+        document.getElementById('wa').min           = controls_default.wa_min;
+        document.getElementById('wa').max           = controls_default.wa_max;
+        document.getElementById('inflation').value  = controls_default.inflation_value;
+        document.getElementById('inflation').min    = controls_default.inflation_min;
+        document.getElementById('inflation').max    = controls_default.inflation_max;
+        document.getElementById('recup').value      = controls_default.recup_value;
+        document.getElementById('recup').min        = controls_default.recup_min;
+        document.getElementById('recup').max        = controls_default.recup_max;
+        document.getElementById('recup_increm').value = controls_default.recup_increm_value;
+        document.getElementById('recup_increm').min = controls_default.recup_increm_min;
+        document.getElementById('recup_increm').max = controls_default.recup_increm_max;
+        document.getElementById('dem_interval').value = controls_default.dem_interval_value;
+        document.getElementById('dem_interval').min = controls_default.dem_interval_min;
+        document.getElementById('dem_interval').max = controls_default.dem_interval_max;
+        document.getElementById('adem').value       = controls_default.adem_value;
+        document.getElementById('adem').min         = controls_default.adem_min;
+        document.getElementById('adem').max         = controls_default.adem_max;
+
+        /* Parámetros ambientales */
+        document.getElementById('em').value     = controls_default.em_value;
+        document.getElementById('em').min       = controls_default.em_min;
+        document.getElementById('em').max       = controls_default.em_max;
+        document.getElementById('el').value     = controls_default.el_value;
+        document.getElementById('el').min       = controls_default.el_min;
+        document.getElementById('el').max       = controls_default.el_max;
+        document.getElementById('et').value     = controls_default.et_value;
+        document.getElementById('et').min       = controls_default.et_min;
+        document.getElementById('et').max       = controls_default.et_max;
+        document.getElementById('en').value     = controls_default.en_value;
+        document.getElementById('en').min       = controls_default.en_min;
+        document.getElementById('en').max       = controls_default.en_max;
+        document.getElementById('wa').value     = controls_default.wa_value;
+        document.getElementById('wa').min       = controls_default.wa_min;
+        document.getElementById('wa').max       = controls_default.wa_max;
     } catch (error) {
         console.error('Error:', error);
         alert('An error occurred while uploading the file.');
