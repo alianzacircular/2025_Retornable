@@ -15,6 +15,19 @@ async function runSampleModel() {
     button.disabled = true;
 
     try {
+
+        dem_interval_min = document.getElementById('dem_interval_min').value;
+        dem_interval_max = document.getElementById('dem_interval_max').value;
+        if (dem_interval_min == "" || dem_interval_max == "") {
+            alert("Please fill in the minimum and maximum values for the demand interval.");
+            return;
+        }
+        if (parseFloat(dem_interval_min) > parseFloat(dem_interval_max)) {
+            alert("The minimum value for the demand interval cannot be greater than the maximum value.");
+            return;
+        }
+        // Validate that the demand interval is a valid JSON array
+        const dem_interval = [parseFloat(dem_interval_min), parseFloat(dem_interval_max)];
         // Gather input values
         const parameters = {
             /*
@@ -54,7 +67,7 @@ async function runSampleModel() {
             inflation: parseFloat(document.getElementById('inflation').value),
             recup: parseFloat(document.getElementById('recup').value),
             recup_increm: parseFloat(document.getElementById('recup_increm').value),
-            dem_interval: JSON.parse(document.getElementById('dem_interval').value),
+            dem_interval: dem_interval,
             adem: parseFloat(document.getElementById('adem').value),
 
             // Parámetros Ambientales
