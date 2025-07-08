@@ -294,6 +294,36 @@ def update_graph():
     graph_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graph_json
 
+@app.route('/upload_dist_file', methods=['POST'])
+def upload_dist_file():
+    """
+    Update the graph based on the optimization solution.
+
+    Returns
+    -------
+    json
+        JSON response containing updated graph data.
+    """
+    print ("upload dist file")
+
+    global parameters
+
+    if 'file_dist' not in request.files:
+        return jsonify({'error': 'No file part'})
+    file = request.files['file_dist']
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'})
+    if file:
+        url_dist = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        file.save(url_dist)
+        # TODO: Decide how to load coord and distances
+        parameters = read_data(json_path, url_coord, url_dist, url_demand)
+        fig = create_map(parameters['df_coord'])
+        graph_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
+        controls_default = get_controls_default(parameters)
+        return jsonify({'graph_json': graph_json, 'controls_default': controls_default})
+
+
 @app.route('/')
 def index():
     """
