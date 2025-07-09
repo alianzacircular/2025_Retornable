@@ -167,8 +167,8 @@ def get_controls_default(parameters):
         'wa_max': 10 * parameters['wa'],
         
 
-
     }
+    print(parameters['dem_interval'][1])
     return controls_default
 
 @app.route('/upload', methods=['POST'])
