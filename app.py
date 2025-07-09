@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request, jsonify
+from calculate_distances import calculate_distances
 import plotly
 import os
 import json
+import requests
 from pyomo.environ import *
 from pyomo.opt import SolverFactory
 from utilities import read_data, create_instance, create_map, create_df_coord
@@ -293,6 +295,11 @@ def update_graph():
     fig = create_map(df_coord)
     graph_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graph_json
+
+@app.route('/calculate_distances', methods=['GET'])
+def calculate_distances_route():
+    return calculate_distances()
+
 
 @app.route('/')
 def index():
