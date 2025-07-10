@@ -291,4 +291,88 @@ async function uploadFile() {
 }
 
 
+async function upload_dist_file() {
+    const button = document.getElementById('btn_load_dist');
+    const originalText = button.innerText;
+    button.innerText = 'Loading...';
+    button.disabled = true;
+
+    try {
+        let fileInput = document.getElementById('file-dist');
+        if (fileInput.files.length === 0) {
+            alert("Please select a file first!");
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append("file_dist", fileInput.files[0]);
+
+        const response = await fetch('/upload_dist_file', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();      
+        const graph_json = JSON.parse(data.graph_json);        
+        const controls_default = data.controls_default;
+        Plotly.newPlot('graph', graph_json.data, graph_json.layout);
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while uploading the file.');
+    } finally {
+        // Reset button state
+        button.innerText = originalText;
+        button.disabled = false;
+    }
+
+}
+
+/** Upload the coordinates file for generate the distance file */
+async function upload_coord_file() {
+    const button = document.getElementById('btn_load_coord');
+    const originalText = button.innerText;
+    button.innerText = 'Loading...';
+    button.disabled = true;
+
+    try {
+        let fileInput = document.getElementById('file_coord');
+        if (fileInput.files.length === 0) {
+            alert("Please select a file first!");
+            return;
+        }
+
+        let formData = new FormData();
+        formData.append("file_coord", fileInput.files[0]);
+
+        const response = await fetch('/calculate_distances', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();      
+        const graph_json = JSON.parse(data.graph_json);        
+        const controls_default = data.controls_default;
+        Plotly.newPlot('graph', graph_json.data, graph_json.layout);
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while uploading the file.');
+    } finally {
+        // Reset button state
+        button.innerText = originalText;
+        button.disabled = false;
+    }
+
+}
+
+
 
