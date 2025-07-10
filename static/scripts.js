@@ -338,6 +338,7 @@ async function upload_coord_file() {
     const originalText = button.innerText;
     button.innerText = 'Loading...';
     button.disabled = true;
+    document.getElementById('fullscreen-spinner').style.display = 'block';
 
     try {
         let fileInput = document.getElementById('file_coord');
@@ -356,13 +357,11 @@ async function upload_coord_file() {
 
         if (!response.ok) {
             throw new Error('Network response was not ok');
+        }else {
+            return response.json();
         }
 
-        const data = await response.json();      
-        const graph_json = JSON.parse(data.graph_json);        
-        const controls_default = data.controls_default;
-        Plotly.newPlot('graph', graph_json.data, graph_json.layout);
-
+        
     } catch (error) {
         console.error('Error:', error);
         alert('An error occurred while uploading the file.');
@@ -370,6 +369,7 @@ async function upload_coord_file() {
         // Reset button state
         button.innerText = originalText;
         button.disabled = false;
+        document.getElementById('fullscreen-spinner').style.display = 'none';
     }
 
 }

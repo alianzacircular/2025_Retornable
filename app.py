@@ -296,10 +296,23 @@ def update_graph():
     graph_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graph_json
 
-@app.route('/calculate_distances', methods=['GET'])
+@app.route('/calculate_distances', methods=['POST'])
 def calculate_distances_route():
-    return calculate_distances()
+    print("calculate_distances_route")
+    if 'file_coord' not in request.files:
+        return jsonify({'error': 'No file part'})
+    file = request.files['file_coord']
+    if file.filename == '':
+        return jsonify({'error': 'No selected file'})
+    if file:
+        print("init calculate_distances")
+        reponse = calculate_distances(file)
+        print("end calculate_distances")
+        return jsonify({'graph_json': graph_json, 'controls_default': controls_default})
     
+    print("calculate_distances_route error")
+    return jsonify({'error': 'File not found or invalid file format'})
+
 @app.route('/upload_dist_file', methods=['POST'])
 def upload_dist_file():
     """

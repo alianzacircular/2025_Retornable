@@ -4,13 +4,14 @@ import csv
 
 from flask import jsonify, send_file
 
-def calculate_distances():
+def calculate_distances(file):
     """
     Calculate the distance and duration between two fixed coordinates using OSRM.
     """
     try:
         # Read .csv
-        file = 'https://docs.google.com/uc?export=download&id=1VYEnH735Tdgqe9cS4ccYV0OUxMqQpsQh'
+        # file = 'https://docs.google.com/uc?export=download&id=1VYEnH735Tdgqe9cS4ccYV0OUxMqQpsQh'
+        print(f"Processing file: {file}")
         df = pd.read_csv(file, usecols=['id', 'latitude', 'longitude', 'type'])
         number = 1
 
@@ -21,7 +22,7 @@ def calculate_distances():
         producers = df[df['type'] == 'producer'].drop_duplicates(subset='id')
 
         results = []
-
+        print('processing distances...')
         # Distances calculation
         # 1. Collection to Clasification
         for _, collection in collections.iterrows():

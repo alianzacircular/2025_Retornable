@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <div id="fullscreen-spinner" style="display: none;">
+        <div class="spinner-overlay">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+        </div>
+    </div>
     <header>
         <!-- Header image -->
         <img src="{{ url_for('static', filename='images/header.png') }}" class="img-fluid w-100" alt="Header Image">
@@ -30,7 +37,7 @@
         </div>
         <div class="modal-body">
             <p>Upload the coordinates file and we will generate the distance file.</p>
-            <input type="file" class="form-control" id="help-file" id="file_coord" accept=".csv" />
+            <input type="file" class="form-control" id="file_coord" accept=".csv" />
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-primary" id="btn_load_coord" onclick="upload_coord_file()">Upload</button>
