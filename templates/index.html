@@ -20,6 +20,25 @@
         <!-- Header image -->
         <img src="{{ url_for('static', filename='images/header.png') }}" class="img-fluid w-100" alt="Header Image">
     </header>
+    <!-- Modal de ayuda con input file -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="helpModalLabel">Subir archivo de ayuda</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+            <p>Upload the coordinates file and we will generate the distance file.</p>
+            <input type="file" class="form-control" id="help-file" id="file_coord" accept=".csv" />
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="btn_load_coord" onclick="upload_coord_file()">Upload</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
     <div class="container mt-4">
         <div class="row">
             <!-- Controls Column -->
@@ -37,6 +56,9 @@
                     <p>Upload a cvs file to the data</p>
                     <input type="file" id="file-dist" class="form-control" />
                     <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#helpModal">
+                            Get the distance file <i class="fas fa-question-circle"></i>
+                        </button>
                         <button class="btn btn-primary mt-2" id="btn_load_dist" onclick="upload_dist_file()">Load</button>
                     </div>
                     
