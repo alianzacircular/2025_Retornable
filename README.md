@@ -9,5 +9,40 @@ evaluar escenarios de implementación de envases retornables y su impacto ambien
 ---
 
 ## 📁 Estructura del repositorio
+2025_Retornable/
+│
+├── notebooks/ # Notebooks principales del análisis
+├── data/ # Datos utilizados 
+├── utils/ # Funciones auxiliares
+├── .gitattributes # Configuración para reconocer notebooks como Jupyter
+└── README.md # Este archivo
 
 
+---
+
+## 🧪 Tecnologías utilizadas
+
+- Python 
+- Jupyter Notebooks
+- Pandas, NumPy, Matplotlib, Seaborn
+
+
+---
+
+## 🚀 ¿Cómo ejecutar el proyecto?
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/alianzacircular/2025_Retornable.git
+   cd 2025_Retornable
+2. Instala las dependencias:
+   pip install -r requirements.txt
+3. Ejecuta los notebooks:
+
+
+
+## 🤝 Contacto
+Para dudas o sugerencias, puedes contactar al equipo de **Alianza Circular** a través de:
+
+🌐 Sitio web: https://www.alianzacircular.com/acerca-de-nosotros
+✉️ Correo electrónico: alianzacircular@gmail.com
