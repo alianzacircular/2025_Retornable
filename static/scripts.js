@@ -356,13 +356,23 @@ async function upload_coord_file() {
         const response = await fetch('/calculate_distances', {
             method: 'POST',
             body: formData
+        }).then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'distances.csv';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            alert('File downloaded');
         });
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }else {
-            return response.json();
-        }
+        // if (!response.ok) {
+        //     throw new Error('Network response was not ok');
+        // }else {
+        //     return response.json();
+        // }
 
         
     } catch (error) {

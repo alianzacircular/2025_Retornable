@@ -1,6 +1,8 @@
 import requests
 import pandas as pd
 import csv
+import tempfile
+import os
 
 from flask import jsonify, send_file
 
@@ -88,20 +90,37 @@ def calculate_distances(file):
                     print(f"Error washing to producer: {washing['id']} - {producer['id']}: {e}")
 
         # Save CSV file
-        filename = 'distances.csv'
-        with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ['origin', 'type_origin', 'destination', 'tipo_destination', 'distance_geo']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writeheader()
-            for row in results:
-                writer.writerow(row)
+        # filename = 'distances.csv'
+        # with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
+        #     fieldnames = ['origin', 'type_origin', 'destination', 'tipo_destination', 'distance_geo']
+        #     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        #     writer.writeheader()
+        #     for row in results:
+        #         writer.writerow(row)
 
+        # return send_file(
+        #     filename,
+        #     as_attachment=True,
+        #     download_name=filename,
+        #     mimetype='text/csv'
+        # )
+
+        temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".csv", mode='w', newline='', encoding='utf-8')
+        fieldnames = ['origin', 'type_origin', 'destination', 'tipo_destination', 'distance_geo']
+        writer = csv.DictWriter(temp_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in results:
+            writer.writerow(row)
+        temp_file.close()
+
+        # Enviar archivo
         return send_file(
-            filename,
+            temp_file.name,
             as_attachment=True,
-            download_name=filename,
+            download_name='distances.csv',
             mimetype='text/csv'
         )
+
 
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500

@@ -306,12 +306,12 @@ def calculate_distances_route():
         return jsonify({'error': 'No selected file'})
     if file:
         print("init calculate_distances")
-        reponse = calculate_distances(file)
-        print("end calculate_distances")
-        return jsonify({'graph_json': graph_json, 'controls_default': controls_default})
+        # reponse = calculate_distances(file)
+        # print("end calculate_distances")
+        return calculate_distances(file) 
     
-    print("calculate_distances_route error")
-    return jsonify({'error': 'File not found or invalid file format'})
+    ##print("calculate_distances_route error")
+    ##return jsonify({'error': 'File not found or invalid file format'})
 
 @app.route('/upload_dist_file', methods=['POST'])
 def upload_dist_file():
