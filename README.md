@@ -9,13 +9,80 @@ evaluar escenarios de implementación de envases retornables y su impacto ambien
 ---
 
 ## 📁 Estructura del repositorio
-2025_Retornable/
-│
-├── notebooks/ # Notebooks principales del análisis
-├── data/ # Datos utilizados 
-├── utils/ # Funciones auxiliares
-├── .gitattributes # Configuración para reconocer notebooks como Jupyter
-└── README.md # Este archivo
+
+### 1. `calculate_distances` (Cálculo de distancias logísticas)  
+Permite calcular las distancias entre diferentes puntos de la cadena logística (recolección, clasificación, lavado y productores) usando la API pública de **OSRM**.  
+
+**Entrada**  
+Archivo CSV con:  
+- `id`: identificador único del punto  
+- `latitude`: coordenada de latitud  
+- `longitude`: coordenada de longitud  
+- `type`: tipo de nodo (`collection`, `clasification`, `washing`, `producer`)  
+
+**Proceso**  
+- Filtra los puntos por tipo.  
+- Calcula distancias en km entre:  
+  - Recolección → Clasificación  
+  - Clasificación → Lavado  
+  - Lavado → Productor  
+- Genera un archivo temporal `.csv`.  
+
+**Salida**  
+Archivo **`distances.csv`** con:  
+- `origin`  
+- `type_origin`  
+- `destination`  
+- `tipo_destination`  
+- `distance_geo`  
+
+---
+
+### 2. `opt_pyomo` (Modelo de optimización en Pyomo + solver)  
+Contiene una implementación del modelo de optimización usando **Pyomo**, que puede resolverse con diferentes solvers (ej. CBC, GLPK, CPLEX o Gurobi).  
+
+**Funciones principales**:  
+- `create_model_pyomo(instance, model_integer=False)`: construye el modelo a partir de la instancia de datos.  
+- `get_vars_sol_pyomo(model)`: extrae las soluciones en **DataFrames de Pandas**.  
+
+Incluye definición de variables de decisión, función objetivo (maximizar utilidad descontada) y restricciones de capacidad, inventario, demanda y apertura de instalaciones.  
+
+---
+
+### 3. `opt_gurobipy` (Modelo de optimización en Gurobi)  
+Implementación directa del modelo con la API de **Gurobi**.  
+
+**Funciones principales**:  
+- `create_model_gb(instance, model_integer=False)`: construye el modelo.  
+- `get_vars_sol_gb(model)`: obtiene soluciones organizadas en DataFrames.  
+- `get_obj_components(model)`: descompone la función objetivo en ingresos, costos y emisiones.  
+- `distancia_geo(punto1, punto2)`: calcula la distancia entre puntos usando OSRM.  
+
+---
+
+### 4. `utilities` (Funciones de apoyo)  
+Incluye funciones para preparar, procesar y visualizar datos.  
+
+- Lectura de archivos JSON y CSV.  
+- Construcción de instancias (`create_instance`).  
+- Procesamiento de resultados (`create_df_coord`, `create_df_OF`, `create_df_util`).  
+- Visualizaciones:  
+  - Mapas interactivos (`create_map`)  
+  - Gráficos de costos (`graph_costs`)  
+  - Utilización de capacidades (`graph_utilization`)  
+
+**Entradas:** JSON y CSV (coordenadas, distancias, demanda).  
+**Salidas:** instancias listas para el modelo, resultados procesados y gráficos.  
+
+---
+
+## 📂 Ejemplos de uso  
+
+El repositorio incluye archivos de ejemplo en la carpeta `datos/` para facilitar la ejecución de los modelos:  
+
+- **`data.json`** → Establece los parámetros de entrada del modelo.  
+- **`coordenadas.csv`** → Define el mapa de la red logística, indicando qué nodos existen, de qué tipo son y en qué lugar están ubicados. El modelo lo utiliza junto con el archivo de parámetros (JSON) para calcular distancias, flujos y costos.  
+
 
 
 ---
