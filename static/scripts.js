@@ -178,6 +178,7 @@ async function uploadFile() {
         */
        /* New parameters into accordion  */
         /* Parámetros técnicos */
+        console.log(controls_default)
         document.getElementById('ccv').value    = controls_default.ccv_value;
         document.getElementById('ccv').min      = controls_default.ccv_min;
         document.getElementById('ccv').max      = controls_default.ccv_max;
@@ -257,9 +258,11 @@ async function uploadFile() {
         document.getElementById('recup_increm').value = controls_default.recup_increm_value;
         document.getElementById('recup_increm').min = controls_default.recup_increm_min;
         document.getElementById('recup_increm').max = controls_default.recup_increm_max;
-        document.getElementById('dem_interval').value = controls_default.dem_interval_value;
-        document.getElementById('dem_interval').min = controls_default.dem_interval_min;
-        document.getElementById('dem_interval').max = controls_default.dem_interval_max;
+        // document.getElementById('dem_interval').value = controls_default.dem_interval_value;
+        // document.getElementById('dem_interval').min = controls_default.dem_interval_min;
+        // document.getElementById('dem_interval').max = controls_default.dem_interval_max;
+        document.getElementById('dem_interval_min').value = controls_default.dem_interval_value[0];
+        document.getElementById('dem_interval_max').value = controls_default.dem_interval_value[1];
         document.getElementById('adem').value       = controls_default.adem_value;
         document.getElementById('adem').min         = controls_default.adem_min;
         document.getElementById('adem').max         = controls_default.adem_max;
@@ -353,13 +356,23 @@ async function upload_coord_file() {
         const response = await fetch('/calculate_distances', {
             method: 'POST',
             body: formData
+        }).then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'distances.csv';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            alert('File downloaded');
         });
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }else {
-            return response.json();
-        }
+        // if (!response.ok) {
+        //     throw new Error('Network response was not ok');
+        // }else {
+        //     return response.json();
+        // }
 
         
     } catch (error) {
