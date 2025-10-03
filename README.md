@@ -80,7 +80,7 @@ Incluye funciones para preparar, procesar y visualizar datos.
 
 El repositorio incluye archivos de ejemplo en la carpeta `datos/` para facilitar la ejecución de los modelos:  
 
-- **`data.json`** → Establece los parámetros de entrada del modelo.  
+- **`datos.json`** → Establece los parámetros de entrada del modelo.  
 - **`coordenadas.csv`** → Define el mapa de la red logística, indicando qué nodos existen, de qué tipo son y en qué lugar están ubicados. El modelo lo utiliza junto con el archivo de parámetros (JSON) para calcular distancias, flujos y costos.  
 
 
